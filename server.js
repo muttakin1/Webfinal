@@ -23,3 +23,6 @@ app.use(bodyParser.urlencoded({extended:true}))
 app.get('/article',function(req,res){
        res.sendFile(__dirname+'/posts.html')
  })
+ server.listen(3000, 'localhost', function(){
+     console.log('Server running');
+    });
