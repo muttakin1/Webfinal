@@ -1,13 +1,13 @@
 module.exports = function(app) {
 
-    var article = require('./../controllers/post-controllers.js');
+    var post = require('./../controller/post-controllers.js');
   
-    app.get('/new-article', article.new);
+    app.get('/new-post', post.new);
   
-    app.post('/article/create', article.create);
+    app.post('/post/create', post.create);
   
-    app.get('/article/list', article.list);
+    app.get('/post/list', post.list);
     
-    app.get('/article/:articleID', article.single);
+    app.get('/post/:postID', post.single);
   
   }

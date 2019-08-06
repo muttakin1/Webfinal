@@ -1,22 +1,27 @@
-var Article = require('./../models/Article.js');
+var Article = require('./../model/posts.js');
 
-module.exports.new = function(request, response) {
-  response.render('form.ejs');
+module.exports.new = function(request, res) {
+  res.sendFile(__dirname+'/view/form.html');
 }
 
 module.exports.create = function(request, response) {
-  var new_article = new Article(request.body);
-  new_article.save(function(err, data) {
+  var post = new Post(request.body);
+  new_post.save(function(err, data) {
     if (err)
       return response.status(400)
         .json({
-          error: "Please add a title"
+          error: "Please add a title",
+          error: "Please add a Post",
+          error: "Reading time must be greater than 1 min"
         });
+        
     console.log(data);
     return response.status(200)
+    
       .json({
-        message: "Article successfully created"
+        message: "Post successfully created"
       });
+     
 
   })
   console.log(request.body);
@@ -32,14 +37,14 @@ Article.find(function(err, data){
   }
 
   response.status(200).json({
-    articles: data
+    post : data
   });
 });
 
 }
 module.exports.single = function(request, response) {
 
-  Article.findOne({_id:request.params.articleID},
+  Article.findOne({_id:request.params.postID},
     function(err, data){
       if(err){
         response.status(400)
@@ -48,7 +53,7 @@ module.exports.single = function(request, response) {
           });
       }else{
       response.render('article.ejs', {
-        article: data
+        post: data
       })
     }
   });
