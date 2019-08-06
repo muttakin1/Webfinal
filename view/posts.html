@@ -26,5 +26,22 @@
         </div>
         
       </form>
+      <script
+  src="https://code.jquery.com/jquery-3.4.1.js"
+  integrity="sha256-WpOohJOqMqqyKL9FccASB9O0KwACQJpFTUBLTYOVvVU="
+  crossorigin="anonymous"></script>
+       <script>
+      
+      $( document ).ready(function(){
+        $.ajax({
+          method:"GET",
+          url:"/post/list"
+        }).done(function(response){
+          console.log(response);
+        }).fail(function(response){
+          console.log(response.responseText);
+        });
+      });
+    </script>
      
 </body>

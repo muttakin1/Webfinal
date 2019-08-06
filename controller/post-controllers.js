@@ -52,7 +52,7 @@ module.exports.single = function(request, response) {
             error: "Database query error"
           });
       }else{
-      response.render('article.ejs', {
+      response.sendFile('posts.html', {
         post: data
       })
     }
