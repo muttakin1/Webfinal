@@ -15,14 +15,14 @@
           <input type="Title" class="form-control" id="title" placeholder="Enter Post Title">
         </div>
         <div class="form-group">
-            <label for="text">Reading Time</label>
-            <input type="text" class="form-control" id="text placeholder="Enter Approximate reading time">
+            <label for="reading_length">Reading Time</label>
+            <input type="text" class="form-control" id="reading_length" placeholder="Enter Approximate reading time">
           </div>
         
         
         <div class="form-group">
-          <label for="reading_length">Post text</label>
-          <textarea class="form-control" id="reading_length" rows="5"
+          <label for="text">Post text</label>
+          <textarea class="form-control" id="text" rows="5"
           placeholder="Enter Your Post Details here"></textarea>
         </div>
         
@@ -45,7 +45,7 @@
               data: post
             }).done(function(response){
               console.log(response);
-              window.location.replace();
+              window.location.replace("/post/+:postID");
             }).fail(function(response){
               console.log(response.responseText);
             });

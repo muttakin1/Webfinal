@@ -1,11 +1,11 @@
-var Article = require('./../model/posts.js');
+var Post = require('./../model/posts.js');
 
 module.exports.new = function(request, res) {
   res.sendFile(__dirname+'/view/form.html');
 }
 
 module.exports.create = function(request, response) {
-  var post = new Post(request.body);
+  var new_post = new Post(request.body);
   new_post.save(function(err, data) {
     if (err)
       return response.status(400)
@@ -28,7 +28,7 @@ module.exports.create = function(request, response) {
 }
 
 module.exports.list = function(request, response) {
-Article.find(function(err, data){
+  Post.find(function(err, data){
   if(err){
     response.status(400)
       .json({
@@ -44,7 +44,7 @@ Article.find(function(err, data){
 }
 module.exports.single = function(request, response) {
 
-  Article.findOne({_id:request.params.postID},
+  Post.findOne({_id:request.params.postID},
     function(err, data){
       if(err){
         response.status(400)
