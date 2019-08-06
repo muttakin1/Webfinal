@@ -10,18 +10,18 @@
         <h1 id="header">Example heading <span class="badge badge-secondary">New Post</span></h1>
     <form id ="Form">
         <div class="form-group">
-          <label for="exampleFormControlInput1">Post title</label>
-          <input type="email" class="form-control" id="exampleFormControlInput1" placeholder="Enter Post Title">
+          <label for="title">Post title</label>
+          <input type="email" class="form-control" id="title" placeholder="Enter Post Title">
         </div>
         <div class="form-group">
-            <label for="exampleFormControlInput1">Reading Time</label>
-            <input type="email" class="form-control" id="exampleFormControlInput1" placeholder="Enter Approximate reading time">
+            <label for="text">Reading Time</label>
+            <input type="email" class="form-control" id="text" placeholder="Enter Approximate reading time">
           </div>
         
         
         <div class="form-group">
-          <label for="exampleFormControlTextarea1">Post text</label>
-          <textarea class="form-control" id="exampleFormControlTextarea1" rows="5"
+          <label for="reading_length">Post text</label>
+          <textarea class="form-control" id="reading_length" rows="5"
           placeholder="Enter Your Post Details here"></textarea>
         </div>
         
@@ -33,6 +33,9 @@
        <script>
       
       $( document ).ready(function(){
+        $( "#title" ).prop( "disabled", true );
+        $( "#text" ).prop( "disabled", true );
+        $( "#reading_length" ).prop( "disabled", true );
         $.ajax({
           method:"GET",
           url:"/post/list"
