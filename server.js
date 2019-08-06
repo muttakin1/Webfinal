@@ -17,11 +17,11 @@ mongoose.connection.on('error', function(err){
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({extended:true}))
 
- app.get('/index',function(req,res){
-     res.sendFile(__dirname+'/form.html')
+ app.get('/',function(req,res){
+     res.sendFile(__dirname+'/view/form.html')
 })
 app.get('/article',function(req,res){
-       res.sendFile(__dirname+'/posts.html')
+       res.sendFile(__dirname+'/view/posts.html')
  })
  server.listen(3000, 'localhost', function(){
      console.log('Server running');
